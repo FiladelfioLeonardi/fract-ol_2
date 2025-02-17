@@ -6,7 +6,7 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 15:09:25 by fileonar          #+#    #+#             */
-/*   Updated: 2025/02/17 18:16:16 by fileonar         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:23:46 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	events_init(t_fractol *fractol)
 	mlx_hook(fractol->mlx_window, DestroyNotify, StructureNotifyMask,
 			 close_handle, fractol);
 }
+// add key handle mouse and close
 
 void fractol_init(t_fractol *fractol)
 {
