@@ -6,9 +6,11 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 22:33:19 by fileonar          #+#    #+#             */
-/*   Updated: 2025/02/16 23:39:09 by fileonar         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:10:44 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "fractol.h"
 
 int main(int argc, char	**argv)
 {
