@@ -6,7 +6,7 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 23:00:11 by fileonar          #+#    #+#             */
-/*   Updated: 2025/02/17 20:01:41 by fileonar         ###   ########.fr       */
+/*   Updated: 2025/02/18 02:38:45 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,16 @@
 # include <unistd.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
+
+# define WIDTH 800
+# define HEIGHT 800
+
+//COLORS
+#define BLACK 		0x000000
+#define CRIMSON 	0xDC143C
+#define GOLD 		0xFFD700
+#define TEAL 		0x008080
+#define WHITE		0xFFFFFF
 
 //LOCAL LIBRARIES
 # include "./minilibx-linux/mlx.h"  //linux lib for mlx
@@ -51,9 +61,11 @@ typedef struct s_img
 	int		line_length;
 }	t_img;
 
-
-# define WIDTH 800
-# define HEIGHT 800
+typedef struct s_complex
+{
+	double	real;
+	double	imaginary;
+}	t_complex;
 
 //UTILS FUNCTIONS
 int		ft_strcmp(char *s1, char *s2);
@@ -62,6 +74,12 @@ void	ft_putstr_fd(char *s, int fd);
 
 //FRACTOL FUNCT
 void	fractol_init(t_fractol *fractol);
+void 	fractol_render(t_fractol *fractol);
 
+//SCALE MAP
+double	map(double unscaled_num, double new_min, double new_max,
+		double old_min, double old_max);
+t_complex  sum_complex(t_complex z1, t_complex z2);
+t_complex square_complex(t_complex z);
 
 #endif
