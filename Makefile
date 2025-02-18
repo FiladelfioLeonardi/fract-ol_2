@@ -6,7 +6,7 @@
 #    By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/15 21:32:00 by fileonar          #+#    #+#              #
-#    Updated: 2025/02/17 18:20:28 by fileonar         ###   ########.fr        #
+#    Updated: 2025/02/18 10:38:42 by fileonar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ MLX_LIB = $(MLX_DIR)libmlx.a
 
 NAME = fractol
 HEADER = fractol.h
-SRC = main.c initialization.c utils.c
+SRC = main.c initialization.c utils.c math_for_scaling.c render.c events.c
 
 OBJS = $(SRC:.c=.o)
 

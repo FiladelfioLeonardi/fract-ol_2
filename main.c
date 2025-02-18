@@ -6,7 +6,7 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 22:33:19 by fileonar          #+#    #+#             */
-/*   Updated: 2025/02/17 18:10:44 by fileonar         ###   ########.fr       */
+/*   Updated: 2025/02/18 10:21:29 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int main(int argc, char	**argv)
 		fractol.name = argv[1];
 		if (ft_strcmp(argv[1], "julia") == 0) 
 		{
-			//...
+			fractol.julia_x = atodbl(argv[2]);
+			fractol.julia_y = atodbl(argv[3]);
 		}
 		fractol_init(&fractol);
 		fractol_render(&fractol);

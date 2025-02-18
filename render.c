@@ -6,12 +6,25 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 10:33:24 by fileonar          #+#    #+#             */
-/*   Updated: 2025/02/18 02:36:09 by fileonar         ###   ########.fr       */
+/*   Updated: 2025/02/18 10:26:38 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+static void mandelbrot_vs_julia(t_complex *z, t_complex *c, t_fractol *fractol)
+{
+	if (ft_strcmp(fractol->name, "julia") == 0)
+	{
+		c->real = fractol->julia_x;
+		c->imaginary = fractol->julia_y;
+	}
+	else
+	{
+		c->real = z->real;
+		c->imaginary = z->imaginary;
+	}
+}
 
 static void my_pixel_put(int x, int y, t_img *img, int color)
 {
@@ -32,7 +45,7 @@ static void	handle_pixel(int x, int y, t_fractol *fractol)
 
 	z.real = (map(x, -2, 2, 0, WIDTH) * fractol->zoom) + fractol->shift_x;
 	z.imaginary = (map(y, 2, -2, 0, HEIGHT) * fractol->zoom) + fractol->shift_y;
-
+	mandelbrot_vs_julia(&z, &c, fractol);
 	while(i < fractol->iterations_definition)
 	{
 		z = sum_complex(square_complex(z), c);

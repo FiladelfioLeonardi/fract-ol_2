@@ -6,7 +6,7 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 23:00:11 by fileonar          #+#    #+#             */
-/*   Updated: 2025/02/18 02:38:45 by fileonar         ###   ########.fr       */
+/*   Updated: 2025/02/18 10:25:53 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,6 @@
 # include "./minilibx-linux/mlx.h"  //linux lib for mlx
 
 //STRUCTS
-typedef struct s_fractol
-{
-	char	*name;
-	void	*mlx_connection;
-	void	*mlx_window;
-
-	t_img	img;
-	
-	//HOOK MEMBER VARIABLES
-	double escape_value;
-	
-	int		iterations_definition;
-	double	shift_x;
-	double 	shift_y;
-	double 	zoom;
-
-} t_fractol;
-
 typedef struct s_img
 {
 	void	*img_ptr;
@@ -60,6 +42,23 @@ typedef struct s_img
 	int		endian;
 	int		line_length;
 }	t_img;
+
+typedef struct s_fractol
+{
+	char	*name;
+	void	*mlx_connection;
+	void	*mlx_window;
+
+	t_img	img;
+	double escape_value;
+	
+	int		iterations_definition;
+	double	shift_x;
+	double 	shift_y;
+	double 	zoom;
+	double	julia_x;
+	double	julia_y;
+} t_fractol;
 
 typedef struct s_complex
 {
@@ -71,6 +70,7 @@ typedef struct s_complex
 int		ft_strcmp(char *s1, char *s2);
 int		ft_strlen(char *s);
 void	ft_putstr_fd(char *s, int fd);
+double	atodbl(char	*s);
 
 //FRACTOL FUNCT
 void	fractol_init(t_fractol *fractol);
@@ -81,5 +81,11 @@ double	map(double unscaled_num, double new_min, double new_max,
 		double old_min, double old_max);
 t_complex  sum_complex(t_complex z1, t_complex z2);
 t_complex square_complex(t_complex z);
+
+//EVENTS
+int		key_handle(int	keysym, t_fractol *fractol);
+int		mouse_handle(int button, int x, int y, t_fractol *fractol);
+int		close_handle(t_fractol *fractol);
+int 	julia(int x, int y, t_fractol *fractol);
 
 #endif
